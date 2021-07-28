@@ -9,7 +9,7 @@
 \usepackage{nccmath}
 \usepackage{amsthm}
 \usepackage{multirow}
-\usepackage{graphicx}
+\usepackage[dvipdfmx]{graphicx}
 \usepackage{wrapfig}
 \usepackage{here}
 \usepackage{float}
@@ -73,12 +73,21 @@ Colabはブラウザがあれば動作するため、スマートフォンやタ
   \item Colabホームページ：\url{https://colab.research.google.com/notebooks/welcome.ipynb?hl=ja}
 \end{itemize}
 \section{関連技術調査}
+今回配布されてたデータ「Lit-Sphire」と[StyleBlit]について説明する。
 \subsection{Lit-Sphire}
+Lit-Sphireとは、3Dシェーディング\footnote{}の手法において、球状の環境マップ\footnote{3DCGにおけるテクスチャマッピングの手法の1つ。3次元上の表面に擬似的な周囲環境の映り込みを再現する手法。}を利用したシェーディングの手法のことである。具体的なイメージは下図を参照いただきたい。
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.4]{images/lit_demo.png}
+  \caption{Lit-Sphireの一例}
+  出典：\url{https://mevislabdownloads.mevis.de/docs/current/MeVisLab/Standard/Documentation/Publish/ModuleReference/SoGVRLitSphereShading.html}
+\end{figure}
+
 \subsection{StyleBlit}
 
 \section{実験方法}
   \subsection{実験準備}
-    \subsubsection{実験環境}
+  \paragraph{実験環境}
     今回の実験は以下の環境上で行った。下記に実験時の環境を示す。
     \begin{itemize}
       \item　OS：Window10 Home Ver.20H2
@@ -88,6 +97,8 @@ Colabはブラウザがあれば動作するため、スマートフォンやタ
       \item brenderのバージョン：
       \item Chromeのバージョン：
     \end{itemize}
+  \subsection{実験手順}
+
 \section{実験結果}
 \section{考察}
 \section{まとめ}

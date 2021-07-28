@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.5.19)  28 JUL 2021 17:12
+This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.5.19)  28 JUL 2021 17:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -466,6 +466,10 @@ LaTeX Info: Redefining \nameref on input line 23.
 \@outlinefile=\write3
 \openout3 = `5419045-report2.out'.
 
+
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 (Font)              scaled to size 16.60605pt on input line 26.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
@@ -476,7 +480,6 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 11.53198pt on input line 26.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
 6.
-
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -588,31 +591,45 @@ File: images/Logo_Blender.svg.png Graphic file (type bmp)
 File: images/colab_logo.jpeg Graphic file (type bmp)
 <images/colab_logo.jpeg>
  [2]
-Underfull \hbox (badness 1163) in paragraph at lines 98--99
+File: images/lit_demo.png Graphic file (type bmp)
+<images/lit_demo.png>
+
+Underfull \hbox (badness 1163) in paragraph at lines 108--109
 []\JY1/mc/m/n/10 使用したソ ースコ ード 、 画像等へのリンク ： []$\T1/lmtt/m/n/
 10 https : / / drive . google . com / drive / folders /
  []
 
-
-LaTeX Warning: Empty `thebibliography' environment on input line 102.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 104.
 [3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 104.
+
+LaTeX Warning: Empty `thebibliography' environment on input line 112.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 114.
+[4]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 114.
  (./5419045-report2.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 104.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 104.
-Package rerunfilecheck Info: File `5419045-report2.out' has not changed.
-(rerunfilecheck)             Checksum: A3A8F801500A8D09310462BB20F63E12;705.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 104.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 114.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 114.
+
+
+Package rerunfilecheck Warning: File `5419045-report2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `5419045-report2.out':
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  F1C417D2311490373BDBDFAF4EEFCB1E;767.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 114.
  ) 
 Here is how much of TeX's memory you used:
  7581 strings out of 482863
- 111573 string characters out of 5959218
- 375827 words of memory out of 5000000
- 22687 multiletter control sequences out of 15000+600000
+ 111620 string characters out of 5959218
+ 375610 words of memory out of 5000000
+ 22686 multiletter control sequences out of 15000+600000
  601529 words of font info for 120 fonts, out of 8000000 for 9000
  269 hyphenation exceptions out of 8191
  37i,9n,29p,908b,404s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on 5419045-report2.dvi (3 pages, 14200 bytes).
+Output written on 5419045-report2.dvi (4 pages, 14984 bytes).
