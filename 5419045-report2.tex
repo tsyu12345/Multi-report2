@@ -25,22 +25,68 @@
 \maketitle
 
 \begin{abstract}
-  本稿では、今年度マルチメディア情報処理の第2回目課題研究として、「blender」及び「Google Colablatry」における3DCGの描画をもちいて、配布されたデータ「Lit-Sphire」と[StyleBlit]を使用しCG画像のスタイル表現の動画化を実験し、それぞれのデータにおける結果を比較・考察するものである。結果は、、、、で、、、であった。
+  本稿では、今年度マルチメディア情報処理の第2回目課題研究として、「blender」及び「Google Colabratory」における3DCGの描画をもちいて、配布されたデータ「Lit-Sphire」と[StyleBlit]を使用しCG画像のスタイル表現の動画化を実験し、それぞれのデータにおける結果を比較・考察するものである。結果は、、、、で、、、であった。
 \end{abstract}
 
 \section{目的}
+本稿では、今年度マルチメディア情報処理の第2回課題研究としてCGスタイル表現を、レンダリング画像の連番データ化し、最終的には動画化をする実験を行う。本実験は、予め配布されたデータである、「Lit-Sphire」と[StyleBlit]を使用して行う。なお、実験環境はCGレンダリングソフト「brender」及び、クラウド上のPython環境である「GoogleColaboratory」を利用した。なお計算機スペックについては、後述する実験準備の章をご覧頂きたい。
+\section{使用環境の紹介}
+まずは、本実験で使用したソフトウェア、サービスについて軽く説明する。
+\subsection{blenderについて}
+blenderとは、オープンソースの統合型3DCGソフトウェアで、主に3Dモデリング、モーショングラフィックス、アニメーションやシミュレーション、レンダリングやデジタル合成など、3DCGにおける様々な機能を提供するソフトウェアである。WindowsからMacOS、Linux系のOSなど幅広く対応している。主な開発言語は、Python, C, C++。\par
+開発元はBlenderFoundation（Blender財団）と呼ばれる非営利団体が行っており、この財団は短編コンピュータアニメーション映画の制作も行っている。\par
+blenderは、一般的な3DCGソフトウェアの中では比較的軽量であり、ライセンス料も無料である。そのためプロ層に限らずアマチュア層や素人でも3DCGを体験することが可能だ。\par
+blenderは、実際の映画制作スタジオでも広く利用されつつあり、近年の代表的な例だとスタジオカラー社\footnote{}の作品「シン・エヴァンゲリオン劇場版:||」の制作にも利用された。
+\begin{table}[H]
+  \begin{center}
+    \caption{blenderの推奨動作要件}
+    \begin{tabular}{|c|l|} \hline
+      部品&スペック要件\\ \hline
+      CPU & 4コア以上の64bitプロセッサ \\
+      GPU & VRAMが4GB以上のグラフィックプロセッサ \\
+      RAM & 16GB以上 \\
+      ディスプレイ解像度 & 1920$\times$1080以上(Full HD)\\ \hline
+    \end{tabular}
+    \label{hyo01}
+  \end{center}
+\end{table}
+\begin{itemize}
+  \item blender公式ページ：\url{https://blender.org/}
+\end{itemize}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.4]{images/Logo_Blender.svg.png}
+  \caption{blenderロゴ}
+  出典：\url{https://ja.wikipedia.org/wiki/Blender_Foundation}
+\end{figure}
+\subsection{GoogleColaboratoryについて}
+GoogleColaboratory（以降Colab）とは、自身のPC上にPythonの環境構築を行うことなくPythonを利用することができるGoogleのサービスである。Microsoft Edgeや、Google Chromeなどのウェブブラウザで動作するため、初心者から上級者まで幅広くPythonを利用した開発を行うことができる。Colabは、機械学習の普及を目的としたサービスである。\par 見た目は、JupyetrNoteBook\footnote{ブラウザ上で動作する、対話型のPython実行環境。Anacondaに付属している。}のウェブブラウザ版だと思って良い。Googleアカウントさえあれば誰でも無料で使用でき、機械学習等でCPU以外のプロセッサを利用したい場合はGPU\footnote{GPU:Graphics Processing Unitの略。画像処理に特化したプロセッサ。コンピュータが画面に描画する映像の計算処理を主な任務としている。そのため、CPUよりも単純構造でコアを大量に積んでいるため、並列計算に特化している。代表的なGPUには、Nvidea社のGEFORCEがある。}やTPU\footnote{TPU：Tensor processing Unitの略
+。Googleが開発した、機械学習に特化した集積回路（ASIC）。GPUより１ワットあたりのIOPSが高いが、計算精度は劣る。}も無料で利用することが可能だ。\par
+Colabはブラウザがあれば動作するため、スマートフォンやタブレット端末からでも利用することができる。したがって機種に依存せず、複数人と共有して利用することが可能となる。
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.4]{images/colab_logo.jpeg}
+  \caption{Colabロゴ}
+  出典：\url{https://www.tcom242242.net/entry/%E3%83%A1%E3%83%A2/colab/%E3%80%90%E5%85%A5%E9%96%80%E3%80%91colaboratory%E3%81%AE%E5%A7%8B%E3%82%81%E6%96%B9/}
+\end{figure}
+\begin{itemize}
+  \item Colabホームページ：\url{https://colab.research.google.com/notebooks/welcome.ipynb?hl=ja}
+\end{itemize}
 \section{関連技術調査}
+\subsection{Lit-Sphire}
+\subsection{StyleBlit}
+
 \section{実験方法}
   \subsection{実験準備}
     \subsubsection{実験環境}
-    今回の実験は仮想マシン上でR言語を起動し行った。下記に実験時の環境を示す。
+    今回の実験は以下の環境上で行った。下記に実験時の環境を示す。
     \begin{itemize}
-      \item ホストOS：Window10 Home Ver.20H2
-      \item 仮想OS：Ubuntu 20.04.2 LTS
-      \item CPU：Intel(R)Core(TM)i7-9700K @ 3.6GHz
-      \item GPU：Nvidia Geforce RTX2070 OC @ 8GB
-      \item ホストRAM：16GB
-      \item 仮想RAM：4GB
+      \item　OS：Window10 Home Ver.20H2
+      \item CPU：Intel(R)Core(TM)i7-9700K 8cores @ 3.6GHz
+      \item GPU：Nvidia Geforce RTX2070 OC VRAM 8GB
+      \item RAM：16GB
+      \item brenderのバージョン：
+      \item Chromeのバージョン：
     \end{itemize}
 \section{実験結果}
 \section{考察}
