@@ -195,8 +195,104 @@ StyleBlitでは、スタイル転写を実行する時ガイド画像とよば�
 \section{実験結果}
 以下、スタイル化結果のスクリーンショットを示す。
 \subsection{モデル：suzanneの場合}
-\subsection{モデル：blobbyの場合}
+テクスチャ画像が左で、転写するモデルが右側に示されている。
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.4]{images/suzzanne_input1.png}
+  \caption{入力画像１}
+\end{figure}
+\begin{figure}[H]
+ \begin{minipage}{0.5\hsize}
+  \begin{center}
+   \includegraphics[scale=0.4]{images/suzzanne_lit_out1.png}
+  \end{center}
+  \caption{Lit-Sphireでの出力結果画像}
+ \end{minipage}
+ \begin{minipage}{0.5\hsize}
+  \begin{center}
+   \includegraphics[scale=0.4]{images/suzzanne_style_out1.png}
+  \end{center}
+  \caption{StyleBlitでの出力結果画像}
+ \end{minipage}
+\end{figure}
+なおこの条件での動画出力結果は、以下のリンクから参照できる。
+\begin{itemize}
+  \item URL:\url{https://drive.google.com/drive/folders/112dBLmxLyQe94MToRBUOHlm75C4zrxKg?usp=sharing}
+\end{itemize}
 
+次に、テクスチャを変更して同様の実験を行った。その時の結果は下記。
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.4]{images/suzzanne_input2.png}
+  \caption{入力画像2}
+\end{figure}
+\begin{figure}[H]
+ \begin{minipage}{0.5\hsize}
+  \begin{center}
+   \includegraphics[scale=0.4]{images/suzzanne_lit_out2.png}
+  \end{center}
+  \caption{Lit-Sphireでの出力結果画像}
+ \end{minipage}
+ \begin{minipage}{0.5\hsize}
+  \begin{center}
+   \includegraphics[scale=0.4]{images/suzzanne_sytle_out2.png}
+  \end{center}
+  \caption{StyleBlitでの出力結果画像}
+ \end{minipage}
+\end{figure}
+なおこの条件での動画出力結果は、以下のリンクから参照できる。
+\begin{itemize}
+  \item URL:\url{https://drive.google.com/drive/folders/1L7WVmp5V8TFQB9ILghPZwqvu1XI9gEQv?usp=sharing}
+\end{itemize}
+\subsection{モデル：blobbyの場合}
+また、異なる3Dモデルでも同様の実験を行ってみた。
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.4]{images/blo_input1.png}
+  \caption{入力画像3}
+\end{figure}
+\begin{figure}[H]
+ \begin{minipage}{0.5\hsize}
+  \begin{center}
+   \includegraphics[scale=0.4]{images/blo_lit_out3.png}
+  \end{center}
+  \caption{Lit-Sphireでの出力結果画像}
+ \end{minipage}
+ \begin{minipage}{0.5\hsize}
+  \begin{center}
+   \includegraphics[scale=0.4]{images/blo_stylr_out3.png}
+  \end{center}
+  \caption{StyleBlitでの出力結果画像}
+ \end{minipage}
+\end{figure}
+なおこの条件での動画出力結果は、以下のリンクから参照できる。
+\begin{itemize}
+  \item URL:\url{https://drive.google.com/drive/folders/1fics3oMdK64yPkb5z2NB42zhTQyoBngQ?usp=sharing}
+\end{itemize}
+加えて、異なるテクスチャでも同様の実験を行ってみた。
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.4]{images/blo_input4.png}
+  \caption{入力画像4}
+\end{figure}
+\begin{figure}[H]
+ \begin{minipage}{0.5\hsize}
+  \begin{center}
+   \includegraphics[scale=0.4]{images/blo_lit_out4.png}
+  \end{center}
+  \caption{Lit-Sphireでの出力結果画像}
+ \end{minipage}
+ \begin{minipage}{0.5\hsize}
+  \begin{center}
+   \includegraphics[scale=0.4]{images/blo_style_out4.png}
+  \end{center}
+  \caption{StyleBlitでの出力結果画像}
+ \end{minipage}
+\end{figure}
+なおこの条件での動画出力結果は、以下のリンクから参照できる。
+\begin{itemize}
+  \item URL:\url{https://drive.google.com/drive/folders/1wMASt-w3BbsDIBcSFDGM8_pVyUbzJpUO?usp=sharing}
+\end{itemize}
 
 
 \section{考察}
