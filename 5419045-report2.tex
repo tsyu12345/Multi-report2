@@ -76,14 +76,15 @@ Colabはブラウザがあれば動作するため、スマートフォンやタ
 今回配布されてたデータ「Lit-Sphire」と[StyleBlit]について説明する。\par
 なお事前に説明すると、テクスチャとは、「3Dオブジェクトンの凹凸や色の画像」のことで、マッピングとは「テクスチャを3Dオブジェクトに貼り付けること」をそれぞれ意味する。
 \subsection{Lit-Sphire}
-Lit-Sphireとは、3Dシェーディング\footnote{}の手法において、球状の環境マップ\footnote{3DCGにおけるテクスチャマッピングの手法の1つ。3D上の表面に擬似的な周囲環境の映り込みを再現する手法。}利用したシェーディングの手法のことである。具体的なイメージは下図を参照いただきたい。
+Lit-Sphireとは、3Dシェーディング\footnote{}の手法において、球状の環境マップ\footnote{3DCGにおけるテクスチャマッピングの手法の1つ。3D上の表面に擬似的な周囲環境の映り込みを再現する手法。}利用したシェーディングの手法のことである。この手法では、材質と光を表現した球状の絵を利用し、擬似的にライティングを行っている。したがって、事前にライティングの計算を済ませてから、適用先オブジェクトへのライティングを行っている。
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.4]{images/lit_demo.png}
   \caption{球状環境マップの一例}
   出典：\url{https://mevislabdownloads.mevis.de/docs/current/MeVisLab/Standard/Documentation/Publish/ModuleReference/SoGVRLitSphereShading.html}
 \end{figure}
-Lit-Sphreは、ユーザーからそのオブジェクトが見える位置であるカメラ座標の法線座標をテクスチャの座標として使用し、法線と環境マップの色の対応付けを行う役割を果たす。テクスチャ画像の RGB 値が「面の向き」を示している。R 値が右側の面の向きを示し、G値が上側の面の向きを示している。この面の向きと、マテリアル画像の位置関係の対応を計算し、その色を構成画像上に張り付けることで、レンダリングしている。\par　
+Lit-Sphreは、ユーザーからそのオブジェクトが見える位置であるカメラ座標の法線座標をテクスチャの座標として使用し、法線と環境マップの色の対応付けを行う役割を果たす。テクスチャ画像の RGB 値が「面の向き」を示している。R 値が右側の面の向きを示し、G値が上側の面の向きを示している。この面の向きと、マテリアル画像の位置関係の対応を計算し、その色を構成画像上に張り付けることで、レンダリングしている。\par
+　
 本稿では取り扱わないが、他のシェーディング手法であるLambertシェーディングや、Phongシェーディングとは違い環境マップを使用して直感的に色を成業する事ができるので、NPR\footnote{NPR：Non Photorealistic renderingの略。和訳は「非写実的レンダリング」。}目的として都合が良いシェーダーであるとされる。\par
 ところで、NPRとは反対の目的で「PR：Photorealistic rendering」と呼ばれるものがあるが、これは「物理現象のシュミレーションにより、より現実見のある(写実的な)CGレンダリング」を目的として行われる。
 \begin{figure}[H]
@@ -150,8 +151,16 @@ StyleBlitでは、スタイル転写を実行する時ガイド画像とよば�
     C_{T}(p) = C_{S}(u + p -q)
   \end{gather*}
 \end{enumerate}
-
+以下の画像は、開発者がYoutube上に公開しているStyleBlitの概要動画における、MatCapとの比較シーンにおける一部場面である。
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.4]{images/styleblit_ex.png}
+  \caption{MatCapとStyleBlitの比較}
+  出典：\url{https://www.youtube.com/watch?v=krQrDhestVA&t=1s}
+\end{figure}
+上記を見ると確かに、オブジェクトの表面の歪みがStyleBlitの方が無いことが伺える。
 \section{実験方法}
+まず、本実験の目標を改めて説明する。本実験は「Lit-SphereとStyleBlitのスタイル表現をレンダリング画像の連番データに適用する」ことを目的とする。
   \subsection{実験準備}
   \paragraph{実験環境}
     今回の実験は以下の環境上で行った。下記に実験時の環境を示す。
@@ -164,8 +173,32 @@ StyleBlitでは、スタイル転写を実行する時ガイド画像とよば�
       \item Chromeのバージョン： 92.0.4515.107
     \end{itemize}
   \subsection{実験手順}
-
+  まず、スタイル表現を動画化する全体的な流れは以下の通りである。
+  \begin{enumerate}
+    \item blenderファイルより連番画像を制作
+    \item 配布されたColabノートブックにて上記画像を1枚ずつスタイル化処理
+    \item スタイル化した画像を動画化
+  \end{enumerate}
+  以下具体的な流れを説明する。
+  \begin{enumerate}
+    \item 配布されたスライド資料にしたがって、blenderで連番画像を出力し、結果をZIP形式で圧縮し一つにまとめておく。
+    \item 以下、配布されたColabノートブックにある「必要なライブラリのインストール」のコードセルを実行する。
+    \item ライブラリのインストールが完了したら、画像ベースのスタイル化の実装例と補助関数のコードセルをそれぞれ順番に実行する。
+    \item 必要なファイルをColab上にアップロードする。
+    \begin{itemize}
+      \item 左のサイドバーからフォルダのアイコンをクリックし、「セッションストレージにアップロード」を選択し、エクスプローラーからファイルを選択する。
+    \end{itemize}
+    \item ファイルのアップロードが完了したらColabの入力画像の設定にある指示にしたがって、必要なパラメータを指定し、コードセルを実行する。
+    \item ColabのLit-Sphere/StyleBlitの結果の確認からそれぞれのレンダリング手法による結果を確認し、考察を行う。
+    \item ColabのLit-Sphere/StyleBlitの動画出力結果のコードセルをそれぞれ実行し、動画化を行う。その結果を確認し、考察を行う。
+  \end{enumerate}
 \section{実験結果}
+以下、スタイル化結果のスクリーンショットを示す。
+\subsection{モデル：suzanneの場合}
+\subsection{モデル：blobbyの場合}
+
+
+
 \section{考察}
 \section{まとめ}
 
@@ -173,7 +206,8 @@ StyleBlitでは、スタイル転写を実行する時ガイド画像とよば�
 \section{巻末付録}
 \begin{itemize}
   \item StyleBlit開発者ページリンク：\url{https://dcgi.fel.cvut.cz/home/sykorad/styleblit.html}
-  \item 使用したソースコード、画像等へのリンク：\url{https://drive.google.com/drive/folders/1ciY7XHNFSsUBXfiAC9xqw2D2_LYDKVSv?usp=sharing}
+  \item GoogleDriveへのリンク：\url{https://drive.google.com/drive/folders/1ciY7XHNFSsUBXfiAC9xqw2D2_LYDKVSv?usp=sharing}
+  \item GitHubリポジトリはこちら：\url{https://github.com/tsyu12345/Multi-report2}
 \end{itemize}
 \begin{thebibliography}{99}
   \bibitem{bib01} 藤堂英樹、『研究開発日誌』よりStyleBlit、(2019.7.30)、\url{http://hideki-todo.com/cgu/blog/article/styleblit/}
