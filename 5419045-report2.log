@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.5.19)  29 JUL 2021 23:07
+This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2021.5.19)  29 JUL 2021 23:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -623,12 +623,12 @@ File: images/suzzanne_lit_out1.png Graphic file (type bmp)
 File: images/suzzanne_style_out1.png Graphic file (type bmp)
 <images/suzzanne_style_out1.png>
 
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 205--217
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 211--223
 [][]$[]$[] []$[]$[] 
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 220--221
+Underfull \hbox (badness 10000) in paragraph at lines 226--227
 []\T1/lmr/m/n/10 URL:[]$\T1/lmtt/m/n/10 https : / / drive . google . com / driv
 e / folders / 112dBLmxLyQe94MToRBUOHlm75C4zrxKg ?
  []
@@ -640,12 +640,12 @@ File: images/suzzanne_lit_out2.png Graphic file (type bmp)
 File: images/suzzanne_sytle_out2.png Graphic file (type bmp)
 <images/suzzanne_sytle_out2.png>
 
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 230--242
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 236--248
 [][]$[]$[] []$[]$[] 
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 245--246
+Underfull \hbox (badness 10000) in paragraph at lines 251--252
 []\T1/lmr/m/n/10 URL:[]$\T1/lmtt/m/n/10 https : / / drive . google . com / driv
 e / folders / 1L7WVmp5V8TFQB9ILghPZwqvu1XI9gEQv ?
  []
@@ -657,12 +657,12 @@ File: images/blo_lit_out3.png Graphic file (type bmp)
 File: images/blo_stylr_out3.png Graphic file (type bmp)
 <images/blo_stylr_out3.png>
 
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 255--267
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 261--273
 [][]$[]$[] []$[]$[] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 270--271
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 276--277
 []\T1/lmr/m/n/10 URL:[]$\T1/lmtt/m/n/10 https : / / drive . google . com / driv
 e / folders / 1fics3oMdK64yPkb5z2NB42zhTQyoBngQ ?
  []
@@ -674,40 +674,39 @@ File: images/blo_lit_out4.png Graphic file (type bmp)
 File: images/blo_style_out4.png Graphic file (type bmp)
 <images/blo_style_out4.png>
 
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 279--291
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 285--297
 [][]$[]$[] []$[]$[] 
  []
 
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 294--295
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 300--301
 []\T1/lmr/m/n/10 URL:[]$\T1/lmtt/m/n/10 https : / / drive . google . com / driv
 e / folders / 1wMASt-[]w3BbsDIBcSFDGM8 _ pVyUbzJpUO ?
  []
 
-
-Overfull \hbox (22.40627pt too wide) in paragraph at lines 305--306
+[12]
+Overfull \hbox (22.40627pt too wide) in paragraph at lines 317--318
 []\T1/lmr/m/n/10 GoogleDrive \JY1/mc/m/n/10 へのリンク ： []$\T1/lmtt/m/n/10 ht
 tps : / / drive . google . com / drive / folders / 1ciY7XHNFSsUBXfiAC9xqw2D2 _
  []
 
-[11]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 312.
- [12]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 312.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 324.
+[13]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 324.
  (./5419045-report2.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 312.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 312.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 324.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 324.
 Package rerunfilecheck Info: File `5419045-report2.out' has not changed.
-(rerunfilecheck)             Checksum: A23B4BB04D00160CB587CFAC093DDAE4;922.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 312.
+(rerunfilecheck)             Checksum: BD13C375E3AFAC08A6F1E58F7517AF89;987.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 324.
  ) 
 Here is how much of TeX's memory you used:
  7660 strings out of 482863
  113418 string characters out of 5959218
- 376076 words of memory out of 5000000
+ 377138 words of memory out of 5000000
  22746 multiletter control sequences out of 15000+600000
  604524 words of font info for 121 fonts, out of 8000000 for 9000
  269 hyphenation exceptions out of 8191
- 37i,9n,29p,908b,443s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,9n,29p,908b,404s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on 5419045-report2.dvi (12 pages, 40820 bytes).
+Output written on 5419045-report2.dvi (13 pages, 49568 bytes).
