@@ -36,7 +36,7 @@
 blenderとは、オープンソースの統合型3DCGソフトウェアで、主に3Dモデリング、モーショングラフィックス、アニメーションやシミュレーション、レンダリングやデジタル合成など、3DCGにおける様々な機能を提供するソフトウェアである。WindowsからMacOS、Linux系のOSなど幅広く対応している。主な開発言語は、Python, C, C++。\par
 開発元はBlenderFoundation（Blender財団）と呼ばれる非営利団体が行っており、この財団は短編コンピュータアニメーション映画の制作も行っている。\par
 blenderは、一般的な3DCGソフトウェアの中では比較的軽量であり、ライセンス料も無料である。そのためプロ層に限らずアマチュア層や素人でも3DCGを体験することが可能だ。\par
-blenderは、実際の映画制作スタジオでも広く利用されつつあり、近年の代表的な例だとスタジオカラー社\footnote{}の作品「シン・エヴァンゲリオン劇場版:||」の制作にも利用された。
+blenderは、実際の映画制作スタジオでも広く利用されつつあり、近年の代表的な例だとスタジオカラー\footnote{日本のアニメーション制作会社である株式会社カラーの制作スタジオ。アニメーション制作会社ガイナックスの元取締役である庵野秀明氏が2006年5月に同社取締役を辞任し設立。社名である「カラー」はギリシャ語の「$\chi \alpha \rho \acute{\alpha}$(歓喜)」に由来。}の作品「シン・エヴァンゲリオン劇場版:||」の制作にも利用された。
 \begin{table}[H]
   \begin{center}
     \caption{blenderの推奨動作要件}
@@ -73,29 +73,95 @@ Colabはブラウザがあれば動作するため、スマートフォンやタ
   \item Colabホームページ：\url{https://colab.research.google.com/notebooks/welcome.ipynb?hl=ja}
 \end{itemize}
 \section{関連技術調査}
-今回配布されてたデータ「Lit-Sphire」と[StyleBlit]について説明する。
+今回配布されてたデータ「Lit-Sphire」と[StyleBlit]について説明する。\par
+なお事前に説明すると、テクスチャとは、「3Dオブジェクトンの凹凸や色の画像」のことで、マッピングとは「テクスチャを3Dオブジェクトに貼り付けること」をそれぞれ意味する。
 \subsection{Lit-Sphire}
-Lit-Sphireとは、3Dシェーディング\footnote{}の手法において、球状の環境マップ\footnote{3DCGにおけるテクスチャマッピングの手法の1つ。3次元上の表面に擬似的な周囲環境の映り込みを再現する手法。}を利用したシェーディングの手法のことである。具体的なイメージは下図を参照いただきたい。
+Lit-Sphireとは、3Dシェーディング\footnote{}の手法において、球状の環境マップ\footnote{3DCGにおけるテクスチャマッピングの手法の1つ。3D上の表面に擬似的な周囲環境の映り込みを再現する手法。}利用したシェーディングの手法のことである。具体的なイメージは下図を参照いただきたい。
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.4]{images/lit_demo.png}
-  \caption{Lit-Sphireの一例}
+  \caption{球状環境マップの一例}
   出典：\url{https://mevislabdownloads.mevis.de/docs/current/MeVisLab/Standard/Documentation/Publish/ModuleReference/SoGVRLitSphereShading.html}
 \end{figure}
-
+Lit-Sphreは、ユーザーからそのオブジェクトが見える位置であるカメラ座標の法線座標をテクスチャの座標として使用し、法線と環境マップの色の対応付けを行う役割を果たす。テクスチャ画像の RGB 値が「面の向き」を示している。R 値が右側の面の向きを示し、G値が上側の面の向きを示している。この面の向きと、マテリアル画像の位置関係の対応を計算し、その色を構成画像上に張り付けることで、レンダリングしている。\par　
+本稿では取り扱わないが、他のシェーディング手法であるLambertシェーディングや、Phongシェーディングとは違い環境マップを使用して直感的に色を成業する事ができるので、NPR\footnote{NPR：Non Photorealistic renderingの略。和訳は「非写実的レンダリング」。}目的として都合が良いシェーダーであるとされる。\par
+ところで、NPRとは反対の目的で「PR：Photorealistic rendering」と呼ばれるものがあるが、これは「物理現象のシュミレーションにより、より現実見のある(写実的な)CGレンダリング」を目的として行われる。
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.4]{images/PR.jpg}
+  \caption{PRの一例}
+  出典：\url{https://jp.123rf.com/photo_85627230_%E5%AE%B6%E3%81%AE%E5%86%99%E5%AE%9F%E7%9A%84%E3%81%AA%E3%83%AC%E3%83%B3%E3%83%80%E3%83%AA%E3%83%B3%E3%82%B0%E3%81%AE-3-d-%E5%9B%B3.html}
+\end{figure}
+上図のように精密な写実的なCGモデルを構築するには、被写体のモデルも精密である必要がある。対して、NPRは絵画や、イラスト等のあまり現実味のない(非写実的)な画像、CGを構築することを示す。人が描く絵を書くようにCGを構築することを指す。
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.4]{images/NPR.jpg}
+  \caption{NPRの一例}
+  出典：\url{http://modogroup.jp/modo/kits/npr}
+\end{figure}
 \subsection{StyleBlit}
+レンダリングには、通常比較的強いマシンスペックが要求されることが多い。しかし、Sty5leBlitと呼ばれるレンダリング手法は、1コアのCPUでも高品質なレンダリングを提供することのできる技術、アルゴリズムとなっている。\par
+StyleBlitとは、高品質で定型化されたレンダリングを提供できる効率的なスタイル転送アルゴリズムである。このStyleBlitは比較的計算量の少ないゲームやモバイル系のアプリに適したアルゴリズムとなっている。\par
+StyleBlitに関して、藤堂英樹氏のブログ\cite{bib01}にて非常に分かりやすく紹介されているので、引用する。
+\begin{quote}
+  StyleBlitは，Lit-Sphereと同様に，球にデザインされたシェーディングを3Dモデル上に転写できますが，ストロークのような細かい特徴まで合わせて転写することが可能です．
+\end{quote}
+つまり、StyleBlitはLit-Sphereと同様に球状の環境マップを利用したシェーディングの手法と言うことになる。では、実際のレンダリングにおいて、両者にはどの様な相違点があるのか。同氏のブログ\cite{bib01}には次のように述べられている。
+\begin{quote}
+  通常のLit-Sphereだと，下記のようなストロークタッチ込みのマップは法線マップの影響で歪んでしまってうまく転写できませんが，StyleBlitだと歪みなく転写することができます．
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{images/todoteacher.png}
+  \end{figure}
+\end{quote}
+つまり、Lit-Sphireでは歪んでしまうような部分でも、StyleBlitを利用することで鮮明に歪みなくレンダリングをすつことができるという点で、両者は大きく異なっていると言える。\par
+巻末付録に、StyleBlitの開発者ホームページへのリンクを載せる。必要に応じてご参照いただきたい。
+\paragraph{手法解説}
+以下、同氏のブログに記載されている内容を踏襲しながらStyleBlitの流れを説明する。その前に、3Dレンダリングで何かと登場することの多い「法線マップ」とはなにか説明する。\par
+法線マップとは、ポリゴン\footnote{ポリゴン：曲面を構成する最小単位。英語では「Polygon」。多角形という意味。3DCGにおいて、3点以上の頂点を結んで得られる多角形データのこと。}に対して、貼り付けることのできるテクスチャの画像データとは別に専用の画像データで割り当てることのできる、法線ベクトルの集合データのことである。法線はポリゴン上の凹凸の影を表現するのに利用され、3Dオブジェクトの1枚のテクスチャ上に対する、光の入射方向と法線マップ上の法線の方向、すなわち法線ベクトルを元に計算している。\par
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.4]{images/hosenmap.jpeg}
+  \caption{法線マップの一例}
+  出典：\url{https://nodachisoft.com/common/jp/article/jp000050/}
+\end{figure}
+StyleBlitでは、スタイル転写を実行する時ガイド画像とよばれる法線画像を用いて特徴の類似する部分を探索する。このとき、法線のガイド画像等を入力し、RGBの画像を出力する。
+以下アルゴルズムの概要を示す。\par
+\begin{itemize}
+  \item 入力一覧
+  \begin{itemize}
+    \item $C_{S}$：スタイル画像(RGB)
+    \item $G_{S}$：スタイルガイド画像(法線画像)
+    \item $G_{T}$：ターゲットガイド画像(法線画像)
+  \end{itemize}
+  \item 出力
+  \begin{itemize}
+    \item $C_{T}$：ターゲット画像
+  \end{itemize}
+\end{itemize}
+出力画像$C_{T}$のピクセル$p$の色値(RGB)$C_{T}(p)$は次に示す手順で算出される。
+\begin{enumerate}
+  \item ターゲットガイド画像の法線空間におけるピクセルの色$G_{T}(p)$の特徴に類似するパッチ領域$p \in \Omega_{T_{i}}$を考える。
+  \item 上記バッチ領域における代表点$q$を計算する。
+  \item 代表点＄$q$のターゲットガイド画像の法線$G_{T}(q)$に類似する法線を持つピクセル$u$をスタイルガイド画像$G_{S}$の法線$G_{S}(u)$から探索する。
+  \item $u$を中心としたパッチ領域$u \in \Omega_{S_{i}}$を考える。
+  \item スタイル画像のピクセルのRGB値を$C_{S}(u)$とし、ターゲット画像側に$C_{S}(u)$を以下の形で転写する。
+  \begin{gather*}
+    C_{T}(p) = C_{S}(u + p -q)
+  \end{gather*}
+\end{enumerate}
 
 \section{実験方法}
   \subsection{実験準備}
   \paragraph{実験環境}
     今回の実験は以下の環境上で行った。下記に実験時の環境を示す。
     \begin{itemize}
-      \item　OS：Window10 Home Ver.20H2
+      \item OS：Window10 Home Ver.20H2
       \item CPU：Intel(R)Core(TM)i7-9700K 8cores @ 3.6GHz
       \item GPU：Nvidia Geforce RTX2070 OC VRAM 8GB
       \item RAM：16GB
-      \item brenderのバージョン：
-      \item Chromeのバージョン：
+      \item brenderのバージョン：2.93.1
+      \item Chromeのバージョン： 92.0.4515.107
     \end{itemize}
   \subsection{実験手順}
 
@@ -106,10 +172,11 @@ Lit-Sphireとは、3Dシェーディング\footnote{}の手法において、球
 
 \section{巻末付録}
 \begin{itemize}
+  \item StyleBlit開発者ページリンク：\url{https://dcgi.fel.cvut.cz/home/sykorad/styleblit.html}
   \item 使用したソースコード、画像等へのリンク：\url{https://drive.google.com/drive/folders/1ciY7XHNFSsUBXfiAC9xqw2D2_LYDKVSv?usp=sharing}
 \end{itemize}
 \begin{thebibliography}{99}
-
+  \bibitem{bib01} 藤堂英樹、『研究開発日誌』よりStyleBlit、(2019.7.30)、\url{http://hideki-todo.com/cgu/blog/article/styleblit/}
 \end{thebibliography}
 
 \end{document}
